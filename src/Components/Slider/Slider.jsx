@@ -9,15 +9,20 @@ import "swiper/css/pagination";
 
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 export default function Slider({children}) {
     return (
       <>
         <Swiper
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
           pagination={{
             dynamicBullets: true,
           }}
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
           {React.Children.map(children, (child, index) => (
