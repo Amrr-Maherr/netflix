@@ -3,7 +3,7 @@ export default function HeaderLinks() {
   return (
     <>
       <div className="flex items-center justify-center">
-        <ul className="flex items-center justify-center gap-2.5">
+        <ul className="flex items-center justify-center gap-5">
           <li>
             <Link href="/">Home</Link>
           </li>
