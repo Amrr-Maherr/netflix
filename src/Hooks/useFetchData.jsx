@@ -8,9 +8,11 @@ export default function UseFetchData({url}) {
     const fetchData = async() => {
         try {
             setLoading(true)
-            const Data = await axios.get(
-              `${NEXT_PUBLIC_API_BASE_URL}${url}`
-            );
+            const Data = await axios.get(`${NEXT_PUBLIC_API_BASE_URL}${url}`, {
+              headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+              },
+            });
             setData(response.data.results);
             setLoading(false)
         } catch (error) {
@@ -20,6 +22,6 @@ export default function UseFetchData({url}) {
     }
     useEffect(() => {
         fetchData()
-    }, [])
+    }, [url])
     return {Data,loading,error}
 }
