@@ -14,10 +14,14 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "../../../Components/ui/navigation-menu";
-export default function UserList() {
+export default function UserList({mobile}) {
     return (
       <>
-        <div className="flex items-center justify-center gap-4">
+        <div
+          className={`flex items-center justify-center gap-4 ${
+            mobile ? "mt-auto h-full mb-[30px]" : ""
+          }`}
+        >
           <div>
             <Tooltip>
               <TooltipTrigger asChild>
