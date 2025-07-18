@@ -4,6 +4,7 @@ import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
 import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
 import HeroSection from "@/Components/HeroSection/HeroSection";
+import Loader from "@/Components/Loader/Loader";
 import MovieAds from "@/Components/MovieAds/MovieAds";
 import Section from "@/Components/Section/Section";
 import UseFetchData from "@/Hooks/useFetchData";
@@ -14,7 +15,11 @@ export default function Home() {
       <Header />
       <SideBar mobile="true" />
       <HeroSection />
-      <Section Data={Data}/>
+      {Data && loading ? (
+        <Loader />
+      ) : (
+        <Section Data={Data} sectionTitle={"Featured Movies"} />
+      )}
       <Footer />
     </>
   );
