@@ -8,7 +8,7 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 export default function Slider({
   children,
   slidesPerView = 1,
-  spaceBetween = 10,
+  spaceBetween = 0,
   slidesPerViewMobile = 1,
   className,
   swiperOptions = {},
