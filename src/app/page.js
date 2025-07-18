@@ -8,18 +8,84 @@ import Loader from "@/Components/Loader/Loader";
 import MovieAds from "@/Components/MovieAds/MovieAds";
 import Section from "@/Components/Section/Section";
 import UseFetchData from "@/Hooks/useFetchData";
+
 export default function Home() {
-  const { loading, error, Data } = UseFetchData({ url: "/movie/upcoming" });
+  const {
+    loading: upcomingLoading,
+    error: upcomingError,
+    Data: upcomingData,
+  } = UseFetchData({ url: "/movie/upcoming" });
+  const {
+    loading: popularLoading,
+    error: popularError,
+    Data: popularData,
+  } = UseFetchData({ url: "/movie/popular" });
+  const {
+    loading: topRatedLoading,
+    error: topRatedError,
+    Data: topRatedData,
+  } = UseFetchData({ url: "/movie/top_rated" });
+
   return (
     <>
       <Header />
       <SideBar mobile="true" />
       <HeroSection />
-      {Data && loading ? (
-        <Loader />
-      ) : (
-        <Section Data={Data} sectionTitle={"Featured Movies"} />
-      )}
+      <main>
+        {/* Upcoming Movies Section */}
+        {upcomingData &&
+          (upcomingLoading ? (
+            <Loader />
+          ) : upcomingError ? (
+            <div className="text-center text-red-500 py-4">
+              Error loading Upcoming Movies: {upcomingError.message}
+            </div>
+          ) : (
+            <Section
+              Data={upcomingData}
+              sectionTitle="Upcoming Movies"
+              slidesPerView={5}
+              slidesPerViewMobile={1}
+              spaceBetween={10}
+            />
+          ))}
+
+        {/* Popular Movies Section */}
+        {popularData &&
+          (popularLoading ? (
+            <Loader />
+          ) : popularError ? (
+            <div className="text-center text-red-500 py-4">
+              Error loading Popular Movies: {popularError.message}
+            </div>
+          ) : (
+            <Section
+              Data={popularData}
+              sectionTitle="Popular Movies"
+              slidesPerView={4}
+              slidesPerViewMobile={2}
+              spaceBetween={20}
+            />
+          ))}
+
+        {/* Top Rated Movies Section */}
+        {topRatedData &&
+          (topRatedLoading ? (
+            <Loader />
+          ) : topRatedError ? (
+            <div className="text-center text-red-500 py-4">
+              Error loading Top Rated Movies: {topRatedError.message}
+            </div>
+          ) : (
+            <Section
+              Data={topRatedData}
+              sectionTitle="Top Rated Movies"
+              slidesPerView={3}
+              slidesPerViewMobile={1}
+              spaceBetween={15}
+            />
+          ))}
+      </main>
       <Footer />
     </>
   );
