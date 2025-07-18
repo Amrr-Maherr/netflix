@@ -9,11 +9,11 @@ export default function Home() {
   const { loading, error, Data } = UseFetchData({ url: "/movie/upcoming" });
   return (
     <>
-      {/* <Header /> */}
-      <SideBar mobile="true" />
+      <Header />
+      <SideBar mobile="true"/>
       <HeroSection />
       {Data.map((movie) => (
-        <MovieAds data={movie} key={movie.id} />
+        <MovieAds data={movie} key={movie.id}/>
       ))}
       <Footer />
     </>
