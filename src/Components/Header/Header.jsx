@@ -1,16 +1,22 @@
 import HeaderLinks from "./Elements/HeaderLinks";
 import Logo from "./Elements/Logo";
 import UserList from "./Elements/UserList.jsx"
+import { motion } from "framer-motion";
 export default function Header() {
     return (
       <>
-        <header className="p-4 bg-black/50 text-white fixed z-20 w-full">
+        <motion.header
+          initial={{ y: -1000 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="p-4 bg-black/50 text-white fixed z-20 w-full"
+        >
           <nav className="flex items-center justify-between">
-           <Logo/>
+            <Logo />
             <HeaderLinks />
-            <UserList/>
+            <UserList />
           </nav>
-        </header>
+        </motion.header>
       </>
     );
 }
