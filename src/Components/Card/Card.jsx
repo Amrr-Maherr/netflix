@@ -19,8 +19,12 @@ export default function Card({ movie }) {
           className="w-full h-auto object-cover"
         />
         <div className="p-4">
-          <h3 className="text-lg font-semibold">{movie.title}</h3>
-          <p className="text-sm text-gray-400 line-clamp-3">{movie.overview}</p>
+          <h3 className="text-lg font-semibold">
+            {movie.title || movie.name || movie.title}
+          </h3>
+          <p className="text-sm text-gray-400 line-clamp-3">
+            {movie.overview.slice(0, 30)}...
+          </p>
           <p className="text-xs text-gray-500 mt-2">
             Vote Average: {movie.vote_average}
           </p>
