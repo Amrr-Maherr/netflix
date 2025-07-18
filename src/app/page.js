@@ -19,7 +19,7 @@ export default function Home() {
     loading: popularLoading,
     error: popularError,
     Data: popularData,
-  } = UseFetchData({ url: "/movie/popular" });
+  } = UseFetchData({ url: "/tv/popular" });
   const {
     loading: topRatedLoading,
     error: topRatedError,
@@ -61,7 +61,7 @@ export default function Home() {
           ) : (
             <Section
               Data={popularData}
-              sectionTitle="Popular Movies"
+              sectionTitle="Popular Tv Shows"
               slidesPerView={4}
               slidesPerViewMobile={2}
               spaceBetween={20}
