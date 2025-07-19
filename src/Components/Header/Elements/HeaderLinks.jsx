@@ -28,7 +28,7 @@ export default function HeaderLinks({ mobile }) {
               : ""
           }
         >
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/Actors" className="flex items-center gap-2">
             {mobile && <Users className="w-5 h-5" />}
             Actors
           </Link>
