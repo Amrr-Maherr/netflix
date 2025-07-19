@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import Footer from "@/Components/Footer/Footer";
 import bgImage from "../../../public/EG-en-20250303-TRIFECTA-perspective_3241eaee-fd55-4a8b-bd9e-cd6c0058b093_small.jpg"
+import Header from "@/Components/Header/Header";
 export default function Register() {
   const router = useRouter();
   const handelSignup = (values, { setSubmitting }) => {
@@ -70,13 +71,14 @@ export default function Register() {
 
   return (
     <>
+      <Header/>
       <motion.div
         style={{
           backgroundImage: `url(${bgImage.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} // Adjusted style
-        className="min-h-screen flex items-center justify-center relative" // Added relative
+        className="min-h-screen flex items-center justify-center relative pt-5" // Added relative
         variants={containerVariants}
         initial="hidden"
         animate="visible"
