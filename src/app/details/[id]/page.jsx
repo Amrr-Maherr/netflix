@@ -34,7 +34,7 @@ export default function Details() {
                   }}
                 ></div>
               </div>
-              <DetailsCard data={Data} />
+              <DetailsCard data={Data} id={id} />
             </div>
             <Footer />
           </>
