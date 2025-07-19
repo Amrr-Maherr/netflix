@@ -14,7 +14,10 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "../../../Components/ui/navigation-menu";
-export default function UserList({mobile}) {
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+export default function UserList({ mobile }) {
+  const route = useRouter()
     return (
       <>
         <div
@@ -25,9 +28,9 @@ export default function UserList({mobile}) {
           <div>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button className="bg-red-600 hover:bg-red-800 cursor-pointer">
+                <Link href="/Search" className="bg-red-600 hover:bg-red-800 cursor-pointer">
                   Search
-                </Button>
+                </Link>
               </TooltipTrigger>
               <TooltipContent>
                 <p>You need to sign up to use search</p>
@@ -37,9 +40,9 @@ export default function UserList({mobile}) {
           <div>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button className="bg-red-600 hover:bg-red-800 cursor-pointer">
+                <Link href="/Register" className="bg-red-600 hover:bg-red-800 cursor-pointer">
                   Register
-                </Button>
+                </Link>
               </TooltipTrigger>
               <TooltipContent>
                 <p>Sign up to browse</p>
