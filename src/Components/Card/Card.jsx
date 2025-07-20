@@ -3,35 +3,35 @@ import { motion } from "framer-motion";
 
 export default function Card({ movie }) {
   return (
-    <Link href={`/details/${movie.id}`} className="mx-auto">
+    <Link href={`/details/${movie.id}`} className="block">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        whileHover={{ scale: 1.05 }}
-        className="m-4 rounded-md overflow-hidden shadow-md bg-gray-800 text-white cursor-pointer"
+        transition={{ duration: 0.3 }}
+        className="relative bg-black text-white overflow-hidden w-[180px] sm:w-[200px] lg:w-[240px] aspect-[2/3] rounded-sm"
       >
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          width={256}
-          height={384}
-          className="w-full h-auto object-cover"
+          src={`https://image.tmdb.org/t/p/w500${
+            movie.profile_path || movie.poster_path
+          }`}
+          alt={movie.name || movie.title}
+          className="w-full h-full object-cover"
         />
-        <div className="p-4">
-          <h3 className="text-lg font-semibold">
-            {movie.title || movie.name || movie.title}
+
+        {/* Hover overlay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 bg-black/80 p-3 flex flex-col justify-end opacity-0"
+        >
+          <h3 className="text-sm font-bold leading-tight">
+            {movie.name || movie.title}
           </h3>
-          <p className="text-sm text-gray-400 line-clamp-3">
-            {movie.overview.slice(0, 30)}...
+          <p className="text-xs text-gray-300 line-clamp-2 mt-1">
+            {movie.vote_average}
           </p>
-          <p className="text-xs text-gray-500 mt-2">
-            Vote Average: {movie.vote_average}
-          </p>
-          <p className="text-xs text-gray-500">
-            Release Date: {movie.release_date}
-          </p>
-        </div>
+        </motion.div>
       </motion.div>
     </Link>
   );
