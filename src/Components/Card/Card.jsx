@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function Card({ movie }) {
+export default function Card({ movie, actor }) {
+  const id = actor ? actor.id : movie.id;
+  const path = actor ? `/actorDetails/${id}` : `/details/${id}`;
   return (
-    <Link href={`/details/${movie.id}`} className="block">
+    <Link href={path}
+      className="block">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -26,7 +29,7 @@ export default function Card({ movie }) {
           className="absolute inset-0 bg-black/80 p-3 flex flex-col justify-end opacity-0"
         >
           <h3 className="text-sm font-bold leading-tight">
-            {movie.name || movie.title}
+            {movie.name || movie.title || movie.original_name}
           </h3>
           <p className="text-xs text-gray-300 line-clamp-2 mt-1">
             {movie.vote_average}
