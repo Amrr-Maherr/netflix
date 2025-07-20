@@ -6,7 +6,7 @@ export default function ActorDetailsCard({ actor }) {
   console.log(actor);
   
   return (
-    <div className="flex flex-col md:flex-row gap-8 p-6 my-5 rounded-lg shadow-lg">
+    <div className="flex flex-col  md:flex-row md:items-center md:justify-center gap-8 p-6 my-5 rounded-lg shadow-lg">
       {/* Left: Profile Image */}
       <div className="w-full md:w-1/3">
         {actor.profile_path ? (
