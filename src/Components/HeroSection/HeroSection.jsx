@@ -2,6 +2,7 @@ import UseFetchData from "@/Hooks/useFetchData";
 import Slider from "../Slider/Slider";
 import { Button } from "../ui/button";
 import Loader from "../Loader/Loader";
+import Link from "next/link";
 
 export default function HeroSection() {
   const { loading, Data, error } = UseFetchData({ url: "/movie/popular" });
@@ -29,9 +30,11 @@ export default function HeroSection() {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-center max-w-3xl">
               {movie.overview.slice(0, 50)}...
             </p>
-            <button className="bg-red-600 hover:bg-red-700 text-base sm:text-lg cursor-pointer md:text-xl lg:text-2xl font-semibold py-5 sm:py-4 md:py-3 px-6 sm:px-8 md:px-10 rounded-lg transition-all ease-in-out duration-300">
-              Watch now
-            </button>
+            <Link href={`/details/${movie.id}`}>
+              <span className="bg-red-600 hover:bg-red-700 text-base sm:text-lg cursor-pointer md:text-xl lg:text-2xl font-semibold py-5 sm:py-4 md:py-3 px-6 sm:px-8 md:px-10 rounded-lg transition-all ease-in-out duration-300">
+                Watch now
+              </span>
+            </Link>
           </div>
         </div>
       ))}

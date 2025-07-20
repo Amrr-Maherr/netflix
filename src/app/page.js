@@ -19,7 +19,7 @@ export default function Home() {
     loading: popularLoading,
     error: popularError,
     Data: popularData,
-  } = UseFetchData({ url: "/movie/upcoming" });
+  } = UseFetchData({ url: "/movie/now_playing" });
   const {
     loading: topRatedLoading,
     error: topRatedError,
