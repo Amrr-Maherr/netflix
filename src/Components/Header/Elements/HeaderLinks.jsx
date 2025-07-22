@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { Home, Users, Film, Tv, List, CircleX } from "lucide-react";
 
@@ -52,7 +53,7 @@ export default function HeaderLinks({ mobile }) {
               : ""
           }
         >
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/TvShows" className="flex items-center gap-2">
             {mobile && <Tv className="w-5 h-5" />}
             Tv Shows
           </Link>

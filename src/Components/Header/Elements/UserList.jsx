@@ -14,11 +14,9 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from "../../../Components/ui/navigation-menu";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function UserList({ mobile }) {
-  const route = useRouter();
   return (
     <>
       <div

@@ -1,3 +1,4 @@
+"use client"
 import HeaderLinks from "./Elements/HeaderLinks";
 import Logo from "./Elements/Logo";
 import UserList from "./Elements/UserList.jsx"
