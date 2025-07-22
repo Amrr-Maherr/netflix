@@ -22,7 +22,7 @@ export default function UseFetchSearch({ query }) {
     try {
       // Make GET request to search endpoint with authorization header
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_SEARCH_MULTI}?=${query}`,
+        `${process.env.NEXT_PUBLIC_SEARCH_MULTI}?query=${query}`,
         {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -31,7 +31,7 @@ export default function UseFetchSearch({ query }) {
       );
 
       // Save the response data
-      setData(response.data);
+      setData(response?.data);
       setLoading(false); // Stop loading
     } catch (error) {
       // Save the error if request fails
