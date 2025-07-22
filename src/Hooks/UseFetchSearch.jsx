@@ -22,7 +22,7 @@ export default function UseFetchSearch({ query }) {
     try {
       // Make GET request to search endpoint with authorization header
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_SEARCH_MULTI}?query=${query}`,
+        `https://api.themoviedb.org/3/search/movie?query=${query}`,
         {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -48,3 +48,4 @@ export default function UseFetchSearch({ query }) {
   // Return the error, loading status, and fetched data to be used in the component
   return { error, loading, Data };
 }
+// `https://api.themoviedb.org/3/search/multi?query=${query}`,
