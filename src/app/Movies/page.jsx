@@ -43,19 +43,19 @@ export default function Movies() {
             </p>
           </div>
           {loading ? (
-                    <Loader />
-                  ) : (
-                    <Slider
-                      slidesPerView={6}
-                      slidesPerViewMobile={1}
-                      spaceBetween={5}
-                      className="w-full"
-                    >
-                      {Data.map((tv) => (
-                        <Card tv={tv} key={tv.id} />
-                      ))}
-                    </Slider>
-                  )}
+            <Loader />
+          ) : (
+            <Slider
+              slidesPerView={6}
+              slidesPerViewMobile={1}
+              spaceBetween={5}
+              className="w-full"
+            >
+              {Data.map((movie) => (
+                <Card movie={movie} key={movie.id} />
+              ))}
+            </Slider>
+          )}
         </main>
         <Footer />
       </>
