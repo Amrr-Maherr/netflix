@@ -65,7 +65,7 @@ export default function HeaderLinks({ mobile }) {
               : ""
           }
         >
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/List" className="flex items-center gap-2">
             {mobile && <List className="w-5 h-5" />}
             My List
           </Link>
