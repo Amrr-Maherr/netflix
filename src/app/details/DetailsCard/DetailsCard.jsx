@@ -1,3 +1,4 @@
+import AddToList from "@/app/AddToList/AddToList";
 import Header from "@/Components/Header/Header";
 import Loader from "@/Components/Loader/Loader";
 
@@ -109,9 +110,7 @@ export default function DetailsCard({ data }) {
                 Play
               </button>
             )}
-            <button className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
-              Add to List
-            </button>
+            <AddToList buttonText="Add to List" />
           </div>
         </div>
       </div>

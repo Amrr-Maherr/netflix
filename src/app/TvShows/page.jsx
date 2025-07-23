@@ -48,8 +48,8 @@ export default function TvShows() {
                               {Data.map((tv) => (
                 <Card tv={tv} key={tv.id} />
               ))}
-                            </div>
-                          </section>
+                  </div>
+                </section>
           )}
         </main>
         <Footer />
