@@ -35,7 +35,7 @@ export default function Card({ movie, actor, tv }) {
             {movie?.name || movie?.title || tv?.original_name}
           </h3>
           <p className="text-xs text-gray-300 line-clamp-2 mt-1">
-            {movie?.vote_average}
+            vote({movie?.vote_average || tv?.vote_average})
           </p>
         </motion.div>
       </motion.div>
