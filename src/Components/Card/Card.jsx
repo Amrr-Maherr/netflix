@@ -34,9 +34,11 @@ export default function Card({ movie, actor, tv }) {
           <h3 className="text-sm font-bold leading-tight">
             {movie?.name || movie?.title || tv?.original_name}
           </h3>
-          <p className="text-xs text-yellow-400 line-clamp-2 mt-1">
-            vote({movie?.vote_average || tv?.vote_average})
-          </p>
+          {movie.movie_vote_average && (
+            <p className="text-xs text-yellow-400 line-clamp-2 mt-1">
+              vote({movie?.vote_average || tv?.vote_average})
+            </p>
+          )}
         </motion.div>
       </motion.div>
     </Link>
