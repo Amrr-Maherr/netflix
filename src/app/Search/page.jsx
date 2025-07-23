@@ -41,7 +41,7 @@ export default function Search() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search for a title, genre, or person"
+              placeholder="Search your favorite movies"
               className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 py-4 px-6 rounded-lg bg-gray-800 text-white text-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-400"
             />
             <Button
