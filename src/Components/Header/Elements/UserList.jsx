@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 
 export default function UserList({ mobile }) {
+  const storedUser = JSON.parse(localStorage.getItem("userInfo"));
   return (
     <>
       <div
@@ -37,27 +38,33 @@ export default function UserList({ mobile }) {
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <p>You need to sign up to use search</p>
+              {storedUser ? (
+                <p>You can use search</p>
+              ) : (
+                <p>You need to sign up to use search</p>
+              )}
             </TooltipContent>
           </Tooltip>
         </div>
-        <div>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link href="/Register" passHref>
-                <Button
-                  variant="default"
-                  className="bg-red-500 hover:bg-red-700 cursor-pointer"
-                >
-                  Register
-                </Button>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Sign up to browse</p>
-            </TooltipContent>
-          </Tooltip>
-        </div>
+        {!storedUser && (
+          <div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link href="/Register" passHref>
+                  <Button
+                    variant="default"
+                    className="bg-red-500 hover:bg-red-700 cursor-pointer"
+                  >
+                    Register
+                  </Button>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Sign up to browse</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+        )}
       </div>
     </>
   );

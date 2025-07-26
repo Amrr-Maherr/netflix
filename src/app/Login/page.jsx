@@ -23,7 +23,7 @@ export default function Login() {
     ) {
       console.log("Login successful");
       setTimeout(() => {
-        router.push("/Home");
+        router.push("/");
       }, 1000);
     } else {
       alert("Invalid email or password");
