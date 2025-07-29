@@ -23,7 +23,7 @@ export default function DetailsCard({ data }) {
               No Image Available
             </div>
           )}
-          <p className="mt-5 italic text-gray-400">{data.tagline}</p>
+          <p className="mt-5 italic text-yellow-400">{data.tagline}</p>
         </div>
 
         {/* Text Data */}
