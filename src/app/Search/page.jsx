@@ -49,9 +49,9 @@ export default function Search() {
             />
             <Button
               onClick={handleSearch}
-              className="w-full sm:w-auto h-full bg-red-600 px-15 py-4 rounded-[5px] text-white text-lg hover:bg-red-700 transition"
+              className="w-full sm:w-auto h-full cursor-pointer bg-red-600 px-15 py-4 rounded-[5px] text-white text-xl font-bold hover:bg-red-700 transition"
             >
-              Search
+              Get Started {">"}
             </Button>
           </div>
           {loading && <Loader />}
