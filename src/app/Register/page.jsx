@@ -71,7 +71,7 @@ export default function Register() {
 
   return (
     <>
-      <Header/>
+      <Header />
       <motion.div
         style={{
           backgroundImage: `url(${bgImage.src})`,
@@ -87,20 +87,14 @@ export default function Register() {
         {/* <div className="absolute inset-0 bg-black bg-opacity-40 z-0"></div> */}
 
         {/* Form Container */}
-        <div className="bg-black bg-opacity-80 rounded-lg shadow-xl w-full sm:w-3/4 md:w-1/2 lg:w-1/3 py-10 px-8 relative z-10 my-5">
+        <div className="bg-black/80 rounded-lg shadow-ms w-full sm:w-3/4 md:w-1/2 lg:w-1/4 py-6 px-8 relative z-10 my-5">
           {" "}
           {/* Added bg-black bg-opacity-80 and z-10 */}
           {/* Logo */}
           <motion.div variants={itemVariants} className="text-center mb-8">
-            <Image
-              src={Logo}
-              alt="Netflix Logo"
-              width={200} // Slightly larger logo for signup maybe? Optional.
-              height={50}
-              className="mx-auto"
-              priority // Added priority
-            />
-            <h1 className="text-3xl font-bold text-white mt-4">Sign Up</h1>{" "}
+            <h1 className="text-3xl font-bold text-white text-start mt-4">
+              Sign Up
+            </h1>{" "}
             {/* Added Title */}
           </motion.div>
           {/* Signup Form */}
@@ -129,7 +123,7 @@ export default function Register() {
                   formik.touched.email && formik.errors.email
                     ? "border-red-500"
                     : "border-gray-700"
-                } rounded w-full py-3 px-4 text-gray-100 bg-gray-700 bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
+                } rounded w-full py-2 px-4 text-gray-100 bg-transparent bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
               />
               {/* Error message */}
               {formik.touched.email && formik.errors.email && (
@@ -161,7 +155,7 @@ export default function Register() {
                   formik.touched.password && formik.errors.password
                     ? "border-red-500"
                     : "border-gray-700"
-                } rounded w-full py-3 px-4 text-gray-100 bg-gray-700 bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
+                } rounded w-full py-2 px-4 text-gray-100  bg-transparent  bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
               />
               {/* Error message */}
               {formik.touched.password && formik.errors.password && (
@@ -194,7 +188,7 @@ export default function Register() {
                   formik.errors.confirmPassword
                     ? "border-red-500"
                     : "border-gray-700"
-                } rounded w-full py-3 px-4 text-gray-100 bg-gray-700 bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
+                } rounded w-full py-2 px-4 text-gray-100  bg-transparent  bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent`} // Adjusted styling and error border
               />
               {/* Error message */}
               {formik.touched.confirmPassword &&
@@ -212,7 +206,7 @@ export default function Register() {
               {" "}
               {/* Added padding top */}
               <button
-                className="bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 w-full transition duration-150 ease-in-out" // Adjusted styling and added disabled state
+                className="bg-red-600 cursor-pointer hover:bg-red-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 w-full transition duration-150 ease-in-out" // Adjusted styling and added disabled state
                 type="submit"
                 disabled={
                   formik.isSubmitting || !formik.isValid || !formik.dirty
@@ -221,15 +215,36 @@ export default function Register() {
                 {formik.isSubmitting ? "Signing Up..." : "Sign Up"}
               </button>
             </motion.div>
+            <div>
+              <p className="text-center text-gray-400">OR</p>
+            </div>
+            <motion.div variants={itemVariants}>
+              {" "}
+              {/* Added padding top */}
+              <button
+                className="bg-[#33393D] cursor-pointer text-white font-normal py-1 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 w-full transition duration-150 ease-in-out" // Adjusted styling and added disabled state
+                type="submit"
+                disabled={
+                  formik.isSubmitting || !formik.isValid || !formik.dirty
+                } // Disable if submitting, invalid, or pristine
+              >
+                Use a Sign-In Code
+              </button>
+            </motion.div>
+            <div className="flex items-center justify-center">
+              <a href="" className="text-white underline">
+                Forgot password?
+              </a>
+            </div>
           </motion.form>
           {/* Already Have an Account */}
-          <motion.div variants={itemVariants} className="mt-10 text-center">
+          <motion.div variants={itemVariants} className="mt-5 text-start">
             {" "}
             {/* Adjusted margin */}
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-[20px]">
               Already have an account?{" "}
               <Link
-                className="font-semibold text-white hover:underline" // Adjusted styling
+                className="font-semibold text-white hover:underline text-[20px]" // Adjusted styling
                 href="/Login"
               >
                 Sign in now
@@ -237,7 +252,7 @@ export default function Register() {
               .
             </p>
             {/* Optional: Recaptcha text */}
-            <p className="text-gray-500 text-xs mt-4">
+            <p className="text-gray-500 text-[15px] mt-4">
               This page is protected by Google reCAPTCHA to ensure you're not a
               bot.{" "}
               <a href="#" className="text-blue-500 hover:underline">

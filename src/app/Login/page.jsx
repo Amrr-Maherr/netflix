@@ -85,17 +85,11 @@ export default function Login() {
         initial="hidden"
         animate="visible"
       >
-        <div className="bg-black bg-opacity-80 rounded-lg shadow-xl w-full sm:w-3/4 md:w-1/2 lg:w-1/3 py-10 px-8 relative z-10 my-5">
+        <div className="bg-black/80  rounded-sm shadow-xl w-full sm:w-3/4 md:w-1/2 lg:w-1/4 py-4 px-8 relative z-10 my-5">
           <motion.div variants={itemVariants} className="text-center mb-8">
-            <Image
-              src={Logo}
-              alt="Netflix Logo"
-              width={200}
-              height={50}
-              className="mx-auto"
-              priority
-            />
-            <h1 className="text-3xl font-bold text-white mt-4">Sign In</h1>
+            <h1 className="text-3xl font-bold text-white mt-4 text-start">
+              Sign In
+            </h1>
           </motion.div>
 
           <motion.form
@@ -117,7 +111,7 @@ export default function Login() {
                   formik.touched.email && formik.errors.email
                     ? "border-red-500"
                     : "border-gray-700"
-                } rounded w-full py-3 px-4 text-gray-100 bg-gray-700 bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600`}
+                } rounded w-full py-2 px-4 text-gray-100 bg-transparent bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600`}
               />
               {formik.touched.email && formik.errors.email && (
                 <div className="text-red-500 text-xs mt-1 px-1">
@@ -140,7 +134,7 @@ export default function Login() {
                   formik.touched.password && formik.errors.password
                     ? "border-red-500"
                     : "border-gray-700"
-                } rounded w-full py-3 px-4 text-gray-100 bg-gray-700 bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600`}
+                } rounded w-full py-2 px-4 text-gray-100 bg-transparent bg-opacity-70 leading-tight focus:outline-none focus:ring-2 focus:ring-red-600`}
               />
               {formik.touched.password && formik.errors.password && (
                 <div className="text-red-500 text-xs mt-1 px-1">
@@ -150,13 +144,13 @@ export default function Login() {
             </div>
 
             {/* Submit Button */}
-            <motion.div variants={itemVariants} className="pt-4">
+            <motion.div variants={itemVariants} className="pt-2">
               <button
                 type="submit"
                 disabled={
                   formik.isSubmitting || !formik.isValid || !formik.dirty
                 }
-                className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
+                className="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out"
               >
                 {formik.isSubmitting ? "Signing In..." : "Sign In"}
               </button>
@@ -164,8 +158,8 @@ export default function Login() {
           </motion.form>
 
           {/* Link to Signup */}
-          <motion.div variants={itemVariants} className="mt-10 text-center">
-            <p className="text-gray-400">
+          <motion.div variants={itemVariants} className="mt-5 text-start">
+            <p className="text-gray-400 text-[20px]">
               New to Netflix?{" "}
               <Link
                 href="/Register"
@@ -175,7 +169,7 @@ export default function Login() {
               </Link>
               .
             </p>
-            <p className="text-gray-500 text-xs mt-4">
+            <p className="text-gray-500 text-[15px] mt-4">
               This page is protected by Google reCAPTCHA to ensure you're not a
               bot.{" "}
               <a href="#" className="text-blue-500 hover:underline">

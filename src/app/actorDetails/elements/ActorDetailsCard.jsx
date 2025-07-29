@@ -4,9 +4,9 @@ import Footer from "@/Components/Footer/Footer";
 
 export default function ActorDetailsCard({ actor }) {
   console.log(actor);
-  
+
   return (
-    <div className="flex flex-col  md:flex-row md:items-center md:justify-center gap-8 p-6 my-5 rounded-lg shadow-lg">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 p-6 my-5 rounded-lg">
       {/* Left: Profile Image */}
       <div className="w-full md:w-1/3">
         {actor.profile_path ? (
@@ -16,8 +16,8 @@ export default function ActorDetailsCard({ actor }) {
             className="rounded-lg shadow-lg w-full"
           />
         ) : (
-          <div className="bg-gray-800 text-center py-20 rounded-lg">
-            لا توجد صورة متاحة
+          <div className="bg-gray-800 rounded-md shadow-md p-10 text-center text-white h-full flex items-center justify-center flex-col">
+            No Image Available
           </div>
         )}
       </div>
@@ -26,34 +26,38 @@ export default function ActorDetailsCard({ actor }) {
       <div className="w-full md:w-2/3 space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold">{actor.name}</h1>
         <p className="text-gray-300 text-base leading-7">
-          {actor.biography || "لا توجد سيرة ذاتية متاحة."}
+          {actor.biography || "No biography available."}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mt-4">
           <div>
-            <span className="text-gray-400">تاريخ الميلاد:</span>{" "}
-            {actor.birthday || "غير معروف"}
+            <span className="text-gray-400">Birthday:</span>{" "}
+            {actor.birthday || "Unknown"}
           </div>
           <div>
-            <span className="text-gray-400">مكان الميلاد:</span>{" "}
-            {actor.place_of_birth || "غير معروف"}
+            <span className="text-gray-400">Place of Birth:</span>{" "}
+            {actor.place_of_birth || "Unknown"}
           </div>
           <div>
-            <span className="text-gray-400">معروف بـ:</span>{" "}
-            {actor.known_for_department || "غير معروف"}
+            <span className="text-gray-400">Known For:</span>{" "}
+            {actor.known_for_department || "Unknown"}
           </div>
           <div>
-            <span className="text-gray-400">الشعبية:</span>{" "}
-            {actor.popularity || "غير متاح"}
+            <span className="text-gray-400">Popularity:</span>{" "}
+            {actor.popularity || "Not available"}
           </div>
           <div>
-            <span className="text-gray-400">الجنس:</span>{" "}
-            {actor.gender === 1 ? "أنثى" : actor.gender === 2 ? "ذكر" : "آخر"}
+            <span className="text-gray-400">Gender:</span>{" "}
+            {actor.gender === 1
+              ? "Female"
+              : actor.gender === 2
+              ? "Male"
+              : "Other"}
           </div>
           <div>
-            <span className="text-gray-400">معروف أيضًا بـ:</span>{" "}
+            <span className="text-gray-400">Also Known As:</span>{" "}
             {actor.also_known_as?.length
               ? actor.also_known_as.join(", ")
-              : "غير متاح"}
+              : "Not available"}
           </div>
         </div>
       </div>
