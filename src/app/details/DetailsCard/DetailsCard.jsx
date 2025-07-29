@@ -90,6 +90,13 @@ export default function DetailsCard({ data }) {
                 <li key={index}>
                   {company.name}
                   {company.origin_country && ` (${company.origin_country})`}
+                  {company.logo_path && (
+                    <img
+                      src={`${imageBaseUrl}${company.logo_path}`}
+                      alt={`${company.name} logo`}
+                      className="inline-block h-6 ml-2"
+                    />
+                  )}
                 </li>
               ))}
             </ul>
