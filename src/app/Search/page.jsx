@@ -24,15 +24,18 @@ export default function Search() {
   return (
     <>
       <Header />
-      <main className="bg-black min-h-[80dvh] flex items-center justify-center text-white pt-24 px-6">
+      <main className="bg-black min-h-screen flex items-center justify-center text-white pt-24 px-6">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6 max-w-[840px] flex items-center justify-center flex-col mx-auto">
             <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight">
-              What will you watch tonight?
+              Unlimited movies, TV shows, and more
             </h1>
-            <p className="text-gray-400 text-lg sm:text-xl">
-              Explore trending titles, hidden gems, and everything in between —
-              all in one place.
+            <p className="text-white text-lg sm:text-xl my-5 font-bold">
+              Starts at EGP 100. Cancel anytime.
+            </p>
+            <p className="text-white text-lg sm:text-xl font-normal">
+              Ready to watch? Enter your email to create or restart your
+              membership.
             </p>
           </div>
 
@@ -42,19 +45,17 @@ export default function Search() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search your favorite movies"
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 py-4 px-6 rounded-lg bg-gray-800 text-white text-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-400"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 py-4 px-6 rounded-[5px] bg-gray-800 text-white text-lg focus:outline-none focus:ring-2 focus:ring-red-600 placeholder-gray-400"
             />
             <Button
               onClick={handleSearch}
-              className="w-full sm:w-auto h-full bg-red-600 px-6 py-4 rounded-lg text-white text-lg hover:bg-red-700 transition"
+              className="w-full sm:w-auto h-full bg-red-600 px-15 py-4 rounded-[5px] text-white text-lg hover:bg-red-700 transition"
             >
               Search
             </Button>
           </div>
-          {loading && <Loader/>}
-          {error && (
-            <p className="text-center text-red-500">{error}</p>
-          )}
+          {loading && <Loader />}
+          {error && <p className="text-center text-red-500">{error}</p>}
           <section className="bg-black py-10 px-4 sm:px-8 lg:px-16">
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {Array.isArray(Data?.results) && Data?.results?.length > 0
