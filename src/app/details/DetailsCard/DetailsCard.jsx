@@ -1,11 +1,18 @@
 import AddToList from "@/app/AddToList/AddToList";
 import Header from "@/Components/Header/Header";
 import Loader from "@/Components/Loader/Loader";
+import useMovieStorage from "@/Hooks/useMovieStorage";
 
 const imageBaseUrl = process.env.NEXT_PUBLIC_API_imageBaseUrl;
 
 export default function DetailsCard({ data }) {
   if (!data) return <Loader />;
+  const { addMovieToLocalStorage } = useMovieStorage();
+
+  const handleAdd = () => {
+    addMovieToLocalStorage(data);
+  };
+
 
   return (
     <>
@@ -117,7 +124,7 @@ export default function DetailsCard({ data }) {
                 Play
               </button>
             )}
-            <AddToList buttonText="Add to List" />
+            <AddToList onclick={()=>{handleAdd(data);}} buttonText="Add to List" />
           </div>
         </div>
       </div>
