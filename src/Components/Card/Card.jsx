@@ -9,7 +9,7 @@ export default function Card({ movie, actor, tv }) {
     ? `/seriesDetails/${id}`
     : `/details/${id}`;
   return (
-    <Link href={path} className="block">
+    <Link href={path} className="block mx-auto">
       <motion.div
         initial={{ opacity: 0, scale: 0.2 }}
         animate={{ opacity: 1, scale: 1 }}
