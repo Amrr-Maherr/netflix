@@ -1,101 +1,111 @@
-# Netflix Clone 🎬 - Static Frontend Implementation
+# Netflix Clone 🎬
 
-"This project is a dynamic web application built with Next.js, serving as an interface for a movie API. While visually inspired by the Netflix landing page, it goes beyond a static clone by fetching and displaying real-time movie data (like popular titles, genres, and details) from an external source. It leverages the power of Next.js and React to build an interactive user experience, serving as a practical exercise in API integration, state management, and component-based development within the Next.js framework."
+A fully responsive Netflix-like web app built using Next.js, Tailwind CSS, and TMDB API.
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+## 🔧 Technologies Used
 
+### ⚙️ Framework & Core Libraries
+- **Next.js** – React framework for production.
+- **React** – Core UI library.
+- **React DOM** – DOM rendering for React.
 
-## Table of Contents
+### 🎨 Styling & UI
+- **Tailwind CSS** – Utility-first CSS framework.
+- **tw-animate-css** – Tailwind animation utilities.
+- **@tailwindcss/postcss** – Tailwind support for PostCSS.
+- **lucide-react** – Modern icon set.
+- **swiper** – Modern mobile touch slider.
+- **@radix-ui/react-navigation-menu** – Accessible navigation menu.
+- **@radix-ui/react-select** – Custom select dropdowns.
+- **@radix-ui/react-slot**
+- **@radix-ui/react-tooltip** – Accessible tooltips.
+- **class-variance-authority** – Manage class variance.
+- **clsx** – Conditionally join classNames.
+- **tailwind-merge** – Merge Tailwind classes without conflict.
 
-- [Technologies Used](#technologies-used)
-- [Setup](#setup)
-- [Features](#features)
-- [Folder Structure](#folder-structure)
-- [How to Use](#how-to-use)
-- [Contributing](#contributing)
-- [License](#license)
+### 🌐 API & Data Handling
+- **axios** – Promise-based HTTP client for the browser.
+- **@tanstack/react-query** – Powerful asynchronous state management.
 
-## Technologies Used
+### 🧠 Forms & Validation
+- **formik** – Forms in React with ease.
+- **yup** – JavaScript schema validation.
 
-This project is built using fundamental web technologies:
+### 💫 Animations
+- **motion** – Simple and powerful animations.
 
--   **HTML5**: Used for structuring the web page content semantically.
--   **CSS3**: Used for styling the user interface, layout, colors, and responsiveness. This includes techniques like:
-    -   Flexbox and/or CSS Grid for layout management.
-    -   Media Queries for creating a responsive design adapting to different screen sizes.
--   **JavaScript (Vanilla)**: Used for adding interactivity, primarily for the Frequently Asked Questions (FAQ) accordion functionality. No external frameworks or libraries (like React, Vue, jQuery) are used.
+### 🌍 Icons
+- **@fortawesome/fontawesome-svg-core**
+- **@fortawesome/free-brands-svg-icons**
+- **@fortawesome/react-fontawesome**
 
-## Setup
+## 📡 API Used
 
-Follow these simple steps to set up and view the project locally:
+The app uses the [TMDB API](https://www.themoviedb.org/documentation/api) to fetch movie data including:
 
-### 1. Clone the repository:
+- **Trending movies** (`/trending/all/week`)
+- **Top Rated movies** (`/movie/top_rated`)
+- **By Genre** (`/discover/movie?with_genres=`)
+- **Search** (`/search/movie`)
+- **Movie Details** (`/movie/{movie_id}`)
+
+You need a TMDB API key. Create a `.env.local` file with:
 
 ```bash
-git clone https://github.com/Amrr-Maherr/Netflix-Clone.git
+NEXT_PUBLIC_TMDB_API_KEY=your_api_key_here
 ```
 
-### 2. Navigate to the project directory:
+---
+
+## 📁 Folder Structure
+
+Typical structure for components, pages, and hooks.
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](./public/screenshots/home-page.png)
+
+### 🔍 Search / Filter
+![Search Filter](./public/screenshots/search-filter.png)
+
+### 📄 Details Page
+![Details Page](./public/screenshots/details-page.png)
+
+### 📱 Responsive Design
+![Responsive Design](./public/screenshots/responsive.png)
+
+### 🧩 Micro Frontend Isolation
+![Micro Frontend](./public/screenshots/micro-frontend.png)
+
+### ⚙️ Custom Hook Example
+![Custom Hook](./public/screenshots/custom-hook.png)
+
+
+## 🚀 Getting Started
+
+Install dependencies:
 
 ```bash
-cd Netflix-Clone
+npm install
 ```
 
-### 3. Open the project:
+Run the development server:
 
-Simply open the `index.html` file in your preferred web browser (e.g., Chrome, Firefox, Safari, Edge). You can usually do this by double-clicking the file in your file explorer.
-
-*   **(Alternative for Developers):** Use a live server extension (like "Live Server" in VS Code) to serve the `index.html` file, which provides auto-reloading upon code changes.
-
-**Note:** No installation (`npm install`) or environment variables are needed as this is a static project.
-
-## Features
-
--   **Visual Replication**: Mimics the look and feel of the Netflix landing page sections (Header, Hero, Feature Sections, FAQ, Footer).
--   **Semantic HTML**: Structured content using appropriate HTML5 tags.
--   **CSS Styling**: Custom CSS to match Netflix's design language and color palette.
--   **FAQ Accordion**: Interactive Frequently Asked Questions section where answers toggle open/close on click, powered by JavaScript.
--   **Static Site**: Runs entirely in the browser without needing a backend server or database.
--   **(Potentially) Responsive Design**: Adapts layout for different screen sizes (desktop, tablet, mobile) using CSS Media Queries. *(Verify if implemented)*
-
-## Folder Structure
-
-The project follows a basic static site structure:
-
-```plaintext
-.
-├── .gitignore          # Specifies intentionally untracked files that Git should ignore
-├── README.md           # This file, providing information about the project
-├── images/             # Contains all static image assets used in the project
-│   ├── background.jpg  # Example: Main background image
-│   ├── logo.png        # Example: Netflix logo
-│   ├── card-1.png     # Example: Images for feature sections
-│   └── ...             # Other necessary images
-├── index.html         # The main HTML file containing the page structure
-├── script.js          # JavaScript file for interactive elements (e.g., FAQ)
-└── style.css          # CSS file for all styling rules
+```bash
+npm run dev
 ```
 
-## How to Use
+---
 
-1.  Open the `index.html` file in your web browser as described in the [Setup](#setup) section.
-2.  Scroll through the different sections of the cloned landing page.
-3.  Interact with the "Frequently Asked Questions" section by clicking on a question to reveal or hide its answer.
+## 📝 License
 
-## Contributing
+This project is for educational purposes only.
 
-Contributions are welcome! If you'd like to improve this project:
+## Additional Technologies Used
 
-1.  Fork the repository (`https://github.com/Amrr-Maherr/Netflix-Clone/fork`).
-2.  Create a new branch for your feature or bug fix (`git checkout -b feature/YourAmazingFeature` or `git checkout -b bugfix/FixSomething`).
-3.  Make your changes and commit them (`git commit -m 'Add some AmazingFeature'`).
-4.  Push your changes to your forked repository (`git push origin feature/YourAmazingFeature`).
-5.  Open a Pull Request back to the `main` branch of the original repository.
+- 🧩 **Custom Hooks**: Utilized to encapsulate and reuse logic across multiple components.
+- 🏗️ **Micro Frontends Architecture**: Applied to split the app into independently deployable and maintainable frontend modules.
 
-Please consider opening an issue first to discuss significant changes.
-
-## License
-
-This project is currently not licensed. Consider adding an open-source license (like the [MIT License](https://opensource.org/licenses/MIT)) if you want to define how others can use or contribute to your code. You can create a `LICENSE` file in the root directory with the license text.
