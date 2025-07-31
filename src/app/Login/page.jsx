@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import Footer from "@/Components/Footer/Footer";
 import bgImage from "../../../public/EG-en-20250303-TRIFECTA-perspective_3241eaee-fd55-4a8b-bd9e-cd6c0058b093_small.jpg";
 import Header from "@/Components/Header/Header";
+import AuthHeder from "@/Components/authHeader/AuthHeder";
+import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
 
 export default function Login() {
   const router = useRouter();
@@ -73,19 +75,24 @@ export default function Login() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <AuthHeder />
+      <SideBar mobile="true"/>
       <motion.div
         style={{
           backgroundImage: `url(${bgImage.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="min-h-screen flex items-center justify-center relative pt-5"
+        className="min-h-screen flex items-center justify-center relative pt-5 overflow-hidden"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="bg-black/80  rounded-sm shadow-xl w-full sm:w-3/4 md:w-1/2 lg:w-1/4 py-4 px-8 relative z-10 my-5">
+        {/* Blur Overlay */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-black/20 z-0" />
+
+        <div className="bg-black/80 rounded-sm shadow-xl w-full sm:w-3/4 md:w-1/2 lg:w-1/4 py-4 px-8 relative z-10 my-5">
           <motion.div variants={itemVariants} className="text-center mb-8">
             <h1 className="text-3xl font-bold text-white mt-4 text-start">
               Sign In
