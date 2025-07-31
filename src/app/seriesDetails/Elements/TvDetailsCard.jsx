@@ -1,12 +1,17 @@
 "use client";
 import AddToList from "@/app/AddToList/AddToList";
 import Loader from "@/Components/Loader/Loader";
+import useMovieStorage from "@/Hooks/useMovieStorage";
 
 const imageBaseUrl = process.env.NEXT_PUBLIC_API_imageBaseUrl;
 
 export default function TvDetailsCard({ tv }) {
   if (!tv) return <Loader />;
-
+    const { addMovieToLocalStorage } = useMovieStorage();
+  
+    const handleAdd = () => {
+      addMovieToLocalStorage(tv);
+    };
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 gap-10 text-white px-6 py-10">
       {/* Left: Backdrop Image + Tagline */}
@@ -131,7 +136,7 @@ export default function TvDetailsCard({ tv }) {
               Visit Website
             </a>
           )}
-          <AddToList buttonText="Add to List" />
+          <AddToList onclick={()=>{handleAdd(tv);}} buttonText="Add to List" />
         </div>
       </div>
     </div>
