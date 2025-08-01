@@ -6,6 +6,7 @@ import { Button } from "@/Components/ui/button";
 import UseFetchSearch from "@/Hooks/UseFetchSearch";
 import Card from "@/Components/Card/Card";
 import Loader from "@/Components/Loader/Loader";
+import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -24,6 +25,7 @@ export default function Search() {
   return (
     <>
       <Header />
+      <SideBar mobile="true" />
       <main className="bg-black min-h-screen flex items-center justify-center text-white pt-24 px-6">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-6 max-w-[840px] flex items-center justify-center flex-col mx-auto">

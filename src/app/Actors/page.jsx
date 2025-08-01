@@ -4,6 +4,7 @@
 import Card from "@/Components/Card/Card";
 import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
+import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
 import Loader from "@/Components/Loader/Loader";
 import Slider from "@/Components/Slider/Slider";
 import UseFetchData from "@/Hooks/useFetchData";
@@ -15,6 +16,7 @@ export default function page() {
   return (
     <>
       <Header />
+      <SideBar mobile="true" />
       <main className="min-h-screen bg-black flex items-center justify-center flex-col text-white px-6 py-24 sm:py-32 lg:px-8">
         {/* Blur Background Shape */}
         <div

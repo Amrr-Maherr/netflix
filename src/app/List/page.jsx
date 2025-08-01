@@ -3,6 +3,7 @@
 import Card from "@/Components/Card/Card";
 import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
+import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
 import React, { useEffect, useState } from "react";
 
 export default function List() {
@@ -23,7 +24,7 @@ export default function List() {
   return (
     <>
       <Header />
-
+      <SideBar mobile="true" />
       <section className="bg-black min-h-screen px-4 py-20 flex items-center justify-center flex-col">
         <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-8 text-center tracking-wide">
           Your Favorite Movies & TV Shows
