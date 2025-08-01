@@ -5,7 +5,7 @@ import useFetchDetails from "@/Hooks/useFetchDetails"
 import { useParams } from "next/navigation"
 import DetailsCard from "../DetailsCard/DetailsCard";
 import Loader from "@/Components/Loader/Loader";
-
+import SideBar from "../../../Components/Header/SideBar/Eelemnts/SideBar"
 export default function Details() {
     const { id } = useParams()
     const { loading, error, Data } = useFetchDetails({ url: `/movie/${id}` });
@@ -17,7 +17,8 @@ export default function Details() {
           <Loader />
         ) : (
           <>
-            <Header />
+              <Header />
+              <SideBar mobile="true" />
             <div
               className="relative isolate px-6 py-24 sm:py-32 lg:px-8 text-white font-sans bg-black"
               style={{ letterSpacing: "0.02em" }}
