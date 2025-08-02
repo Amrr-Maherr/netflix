@@ -1,4 +1,4 @@
-# Netflix Clone 🎬
+# Netflix 🎬
 
 A fully responsive Netflix-like web app built using Next.js, Tailwind CSS, and TMDB API.
 
