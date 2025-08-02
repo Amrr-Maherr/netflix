@@ -47,13 +47,13 @@ export default function Movies() {
           {loading ? (
             <Loader />
           ) : (
-              <section className="bg-black py-10 px-4 sm:px-8 lg:px-16">
-                <div className="grid gap-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <section className="bg-black py-10 px-4 sm:px-8 lg:px-16">
+              <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {Data.map((movie) => (
-                <Card movie={movie} key={movie.id} />
-              ))}
-                </div>
-              </section>
+                  <Card movie={movie} key={movie.id} />
+                ))}
+              </div>
+            </section>
           )}
         </main>
         <Footer />

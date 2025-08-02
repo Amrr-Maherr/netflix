@@ -59,7 +59,7 @@ export default function Search() {
           {loading && <Loader />}
           {error && <p className="text-center text-red-500">{error}</p>}
           <section className="bg-black py-10 px-4 sm:px-8 lg:px-16">
-            <div className="grid gap-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {Array.isArray(Data?.results) && Data?.results?.length > 0
                 ? Data?.results?.map((ele) => <Card movie={ele} key={ele.id} />)
                 : searchTerm &&
