@@ -25,7 +25,7 @@ export default function List() {
     <>
       <Header />
       <SideBar mobile="true" />
-      <section className="bg-black min-h-screen px-4 py-20 flex items-center justify-center flex-col">
+      <section className="bg-black min-h-screen py-20 flex items-center justify-center flex-col">
         <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-8 text-center tracking-wide">
           Your Favorite Movies & TV Shows
         </h2>

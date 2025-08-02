@@ -49,7 +49,7 @@ export default function page() {
         {loading ? (
           <Loader />
         ) : (
-            <section className="bg-black py-10 px-4 sm:px-8 lg:px-16">
+            <section className="bg-black py-10">
               <div className="grid gap-10 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
                 {Data.map((actor) => (
               <Card movie={actor} key={actor.id} actor={actor} />
