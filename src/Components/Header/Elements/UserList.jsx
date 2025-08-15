@@ -13,8 +13,8 @@ export default function UserList({ mobile }) {
   const [users, setUsers] = useState(null);
 
   useEffect(() => {
-      const storedUser = JSON.parse(localStorage.getItem("userInfo") || "null");
-      setUsers(storedUser);
+    const storedUser = JSON.parse(localStorage.getItem("userInfo") || "null");
+    setUsers(storedUser);
   }, []);
 
   return (
@@ -37,9 +37,9 @@ export default function UserList({ mobile }) {
           </TooltipTrigger>
           <TooltipContent>
             {users ? (
-              <p>You can use search</p>
+              <p>Quickly find your favorite content</p>
             ) : (
-              <p>You need to sign up to use search</p>
+              <p>Please sign in to access search</p>
             )}
           </TooltipContent>
         </Tooltip>
@@ -59,7 +59,7 @@ export default function UserList({ mobile }) {
               </Link>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Sign up to browse</p>
+              <p>Create an account to start exploring</p>
             </TooltipContent>
           </Tooltip>
         </div>
