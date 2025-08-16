@@ -13,7 +13,7 @@ export default function TvShows() {
       <>
         <Header />
         <SideBar mobile="true" />
-        <main className="min-h-screen bg-black flex items-center justify-center flex-col text-white px-6 py-24 sm:py-32 lg:px-8">
+        <main className="min-h-screen bg-black flex items-center justify-center flex-col text-white py-24 sm:py-32">
           {/* Blur Background Shape */}
           <div
             className="absolute  inset-x-0 -top-3 z-10 transform-gpu overflow-hidden blur-3xl"
