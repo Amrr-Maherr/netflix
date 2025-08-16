@@ -7,6 +7,7 @@ import UseFetchSearch from "@/Hooks/UseFetchSearch";
 import Card from "@/Components/Card/Card";
 import Loader from "@/Components/Loader/Loader";
 import SideBar from "@/Components/Header/SideBar/Eelemnts/SideBar";
+import bgImage from "../../../public/EG-en-20250303-TRIFECTA-perspective_3241eaee-fd55-4a8b-bd9e-cd6c0058b093_small.jpg";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -19,15 +20,34 @@ export default function Search() {
       setSearchTerm(query.trim());
     }
     console.log(Data);
-    
   };
+
+ 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>
       <Header />
       <SideBar mobile="true" />
-      <main className="bg-black min-h-screen flex items-center justify-center text-white pt-24 px-6">
-        <div className="max-w-7xl mx-auto w-full">
+      <main
+        style={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="relative min-h-screen flex items-center justify-center text-white pt-24 px-6"
+      >
+        {/* Blur Overlay */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-black/40 z-0" />
+
+        
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="text-center mb-6 max-w-[840px] flex items-center justify-center flex-col mx-auto">
             <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight">
               Unlimited movies, TV shows, and more
@@ -56,14 +76,14 @@ export default function Search() {
               Get Started {">"}
             </Button>
           </div>
-          {loading && <Loader />}
+
           {error && <p className="text-center text-red-500">{error}</p>}
-          <section className="bg-black py-10">
+
+          <section className="py-10">
             <div className="grid gap-x-8 gap-y-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {Array.isArray(Data?.results) && Data?.results?.length > 0
                 ? Data?.results?.map((ele) => <Card movie={ele} key={ele.id} />)
-                : searchTerm &&
-                  !loading && (
+                : searchTerm && (
                     <p className="col-span-full text-center text-gray-400 text-lg mt-10">
                       No results found for your search. Try a different title or
                       keyword.
