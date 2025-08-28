@@ -2,16 +2,22 @@
 import AddToList from "@/app/AddToList/AddToList";
 import Loader from "@/Components/Loader/Loader";
 import useMovieStorage from "@/Hooks/useMovieStorage";
-
+import { toast } from "sonner";
 const imageBaseUrl = process.env.NEXT_PUBLIC_API_imageBaseUrl;
 
 export default function TvDetailsCard({ tv }) {
   if (!tv) return <Loader />;
-    const { addMovieToLocalStorage } = useMovieStorage();
+    const { addMovieToLocalStorage, status } = useMovieStorage();
   
     const handleAdd = () => {
       addMovieToLocalStorage(tv);
-    };
+  };
+   if (status) {
+     toast.success("Movie added to favorites!", {
+       position: "top-right",
+       autoClose: 2000,
+     });
+   }
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 gap-10 text-white px-6 py-10">
       {/* Left: Backdrop Image + Tagline */}
@@ -136,7 +142,12 @@ export default function TvDetailsCard({ tv }) {
               Visit Website
             </a>
           )}
-          <AddToList onclick={()=>{handleAdd(tv);}} buttonText="Add to List" />
+          <AddToList
+            onclick={() => {
+              handleAdd(tv);
+            }}
+            buttonText={`${status ? "Loading..." : "Add to List"}`}
+          />
         </div>
       </div>
     </div>

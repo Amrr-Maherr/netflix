@@ -2,17 +2,26 @@ import AddToList from "@/app/AddToList/AddToList";
 import Header from "@/Components/Header/Header";
 import Loader from "@/Components/Loader/Loader";
 import useMovieStorage from "@/Hooks/useMovieStorage";
+import { toast } from "sonner";
 
 const imageBaseUrl = process.env.NEXT_PUBLIC_API_imageBaseUrl;
 
 export default function DetailsCard({ data }) {
   if (!data) return <Loader />;
-  const { addMovieToLocalStorage } = useMovieStorage();
+  const { addMovieToLocalStorage,status } = useMovieStorage();
 
   const handleAdd = () => {
     addMovieToLocalStorage(data);
   };
 
+  console.log(status);
+
+  if (status) {
+    toast.success("Movie added to favorites!", {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  }
 
   return (
     <>
@@ -124,7 +133,7 @@ export default function DetailsCard({ data }) {
                 Play
               </button>
             )}
-            <AddToList onclick={()=>{handleAdd(data);}} buttonText="Add to List" />
+            <AddToList onclick={()=>{handleAdd(data);}} buttonText={`${status ? "Loading..."  : "Add to List"}`} />
           </div>
         </div>
       </div>

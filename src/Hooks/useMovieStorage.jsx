@@ -1,7 +1,8 @@
 "use client";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 const useMovieStorage = () => {
+  const [status, setStatus] = useState(false);
   const addMovieToLocalStorage = useCallback((movie) => {
     let stored;
 
@@ -20,9 +21,13 @@ const useMovieStorage = () => {
       stored.push(movie);
       localStorage.setItem("movie", JSON.stringify(stored));
     }
+    setStatus(true)
+    setTimeout(() => {
+      setStatus(false);
+    }, 2000);
   }, []);
 
-  return { addMovieToLocalStorage };
+  return { addMovieToLocalStorage,status };
 };
 
 export default useMovieStorage;
